@@ -59,22 +59,5 @@ curl -X POST http://localhost:8080/api/scores \
   -H "Content-Type: application/json" \  
   -d '{"name":"Abby","score":40}'  
 
----
-
-## 📁 Project Structure
-src/
-└─ main/
-├─ java/com/example/sortIt/
-│ ├─ SortItApplication.java # App entry point
-│ └─ api/
-│ ├─ Score.java # Score model
-│ └─ ScoreController.java # REST controller
-└─ resources/
-├─ application.properties # App config
-└─ static/ # Frontend files
-├─ index.html
-├─ script.js
-└─ style.css
-
 
 
