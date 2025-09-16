@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sort It Right! ♻️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header" role="banner">
+    <h1 id="gameTitle">Sort It Right! ♻️</h1>
+    <p class="subtitle">Drag or keyboard-drop items into the correct bin. Learn Aussie bin rules!</p>
+  </header>
+
+  <main id="app" role="main">
+    <section class="hud" aria-live="polite">
+      <div class="hud__group"><span class="hud__label">Level:</span><span id="level">1</span></div>
+      <div class="hud__group"><span class="hud__label">Score:</span><span id="score">0</span></div>
+      <div class="hud__group"><span class="hud__label">Lives:</span><span id="lives">❤❤❤❤❤ </span></div>
+      <div class="hud__group"><span class="hud__label">Time:</span><span id="timer">60</span>s</div>
+    </section>
+
+    <section class="play-area">
+      <div class="items-tray" aria-label="Items to sort" role="list" id="itemsTray"></div>
+
+      <div class="bins" aria-label="Bins">
+        <div class="bin" data-bin="landfill" tabindex="0" role="button" aria-label="Landfill bin (red lid). For general waste.">
+          <div class="bin__lid bin__lid--red"></div>
+          <div class="bin__body">
+            <span class="bin__emoji">🗑️</span>
+            <h3>Landfill</h3>
+            <p class="bin__hint">Red lid</p>
+          </div>
+        </div>
+
+        <div class="bin" data-bin="recycling" tabindex="0" role="button" aria-label="Recycling bin (yellow lid). Paper, cardboard, hard plastics, cans. No soft plastics.">
+          <div class="bin__lid bin__lid--yellow"></div>
+          <div class="bin__body">
+            <span class="bin__emoji">♻️</span>
+            <h3>Recycling</h3>
+            <p class="bin__hint">Yellow lid</p>
+          </div>
+        </div>
+
+        <div class="bin" data-bin="organics" tabindex="0" role="button" aria-label="Food & garden organics bin (green lid). Food scraps, garden clippings. No plastic.">
+          <div class="bin__lid bin__lid--green"></div>
+          <div class="bin__body">
+            <span class="bin__emoji">🌿</span>
+            <h3>FOGO</h3>
+            <p class="bin__hint">Green lid</p>
+          </div>
+        </div>
+
+        <div class="bin" data-bin="glass" tabindex="0" role="button" aria-label="Glass only bin (purple lid). Bottles and jars only.">
+          <div class="bin__lid bin__lid--purple"></div>
+          <div class="bin__body">
+            <span class="bin__emoji">🍾</span>
+            <h3>Glass</h3>
+            <p class="bin__hint">Purple lid</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feedback" id="feedback" aria-live="polite"></section>
+
+    <section class="controls">
+      <button id="btnStart" class="btn">Start</button>
+      <button id="btnHow" class="btn btn--ghost">How to play</button>
+      <button id="btnMute" class="btn btn--ghost" aria-pressed="false">🔊 Sound</button>
+      <button id="btnName" class="btn btn--ghost">Set Name</button>
+    </section>
+
+    <section class="board">
+      <h2>🏆 Leaderboard (Top 10)</h2>
+      <ol id="leaderboard"></ol>
+    </section>
+  </main>
+
+  <dialog id="howDialog" aria-labelledby="howTitle">
+    <h2 id="howTitle">How to play</h2>
+    <ul>
+      <li>Drag an item into a bin — or use keyboard: <kbd>Tab</kbd> to focus an item, <kbd>Enter</kbd> to pick up, <kbd>Tab</kbd> to focus a bin, <kbd>Enter</kbd> to drop.</li>
+      <li>Each correct sort = +10 points. Wrong sort = lose a life and see why it’s wrong.</li>
+      <li>Finish 10 items before the timer runs out to beat the level!</li>
+      <li>Bin colours: Red = Landfill, Yellow = Recycling, Green = FOGO, Purple = Glass-only.</li>
+    </ul>
+    <button class="btn" id="btnCloseHow">Got it</button>
+  </dialog>
+
+  <footer class="app-footer" role="contentinfo">
+    <p>Made for kids in Australia. Always check your local council rules — they can vary!</p>
+  </footer>
+
+  <div id="confetti" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
